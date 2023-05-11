@@ -15,6 +15,11 @@ const dialogController = {
     const dialog = dialogs.find(dialog => dialog.id === parseInt(req.params.id))
     if (!dialog) return res.status(404).send('Dialog not found')
     res.json(dialog)
+  },
+  post:(req, res) => {
+    console.log(req.body.question)
+    res.json('Test post') 
+  
   }
 }
 
