@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const mongoose = require('mongoose')
 const port = 3000
 
 // Swagger
@@ -28,20 +27,16 @@ app.use(express.json())
 
 app.use('/api/v1', require('./routes/v1'))
 
+const cors = require('cors')
+app.use(cors())
+
 app.get('*', (req, res) => {
     // res.status(404).json({message: 'Not found'}) bonne pratique
     res.sendFile(__dirname + '/view/404.html')
 })
 
-try {
-    mongoose.connect('mongodb+srv://hugoscelers:P3CYYRmNA8qD@clusterrobot.ptzh8yd.mongodb.net/')
-        .then(console.log('connect to database'))
-    
-        .catch((error) => (console.log(error)))
-} catch (error) {
-    console.log(error);
-}
-
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 })
+
+
