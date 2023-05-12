@@ -25,9 +25,6 @@ app.get('*', (req, res) => {
     // res.status(404).json({message: 'Not found'}) bonne pratique
     res.sendFile(__dirname + '/view/404.html')
 })
-mongoose.connect(process.env.MONGO)
-    .then(() => { console.log('Connected to database!') })
-    .catch((error) => { console.log('Connection failed:', error) })
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
