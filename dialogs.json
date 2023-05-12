@@ -1,17 +1,52 @@
 [
-    {
-      "id": 0,
-      "question": "Salut",
-      "response": "Salut"
-    },
-    {
-      "id": 1,
-      "question": "Comment vas-tu ?",
-      "response": "Je vais bien, merci."
-    },
-    {
-      "id": 2,
-      "question": "Quel est ton nom ?",
-      "response": "Ouais c'est Greg."
-    }
-  ]
+  {
+    "id": 0,
+    "question": "Quels sont les meilleurs exercices pour les pectoraux ?",
+    "response": "Les meilleurs exercices pour les pectoraux sont le développé couché, le développé incliné et les pompes."
+  },
+  {
+    "id": 1,
+    "question": "Comment améliorer mon endurance en basket ?",
+    "response": "Pour améliorer ton endurance en basket, tu peux faire des exercices cardiovasculaires tels que la course à pied, la corde à sauter et les sprints."
+  },
+  {
+    "id": 2,
+    "question": "Comment éviter les blessures lors de l'entraînement de musculation ?",
+    "response": "Pour éviter les blessures lors de l'entraînement de musculation, il est important de bien s'échauffer avant chaque séance, de progresser de manière progressive et d'utiliser une bonne technique pour chaque exercice."
+  },
+  {
+    "id": 3,
+    "question": "Quelle est la meilleure façon de travailler les abdominaux ?",
+    "response": "La meilleure façon de travailler les abdominaux est de faire des exercices ciblant les muscles abdominaux tels que les crunchs, les relevés de jambes et les planches."
+  },
+  {
+    "id": 4,
+    "question": "Comment améliorer mes shoots en basket ?",
+    "response": "Pour améliorer tes shoots en basket, tu peux pratiquer régulièrement en utilisant les bonnes techniques de tir, en travaillant ta coordination et en augmentant ta force et ta souplesse."
+  },
+  {
+    "id": 5,
+    "question": "Quels sont les meilleurs exercices pour les biceps ?",
+    "response": "Les meilleurs exercices pour les biceps sont le curl avec haltères, le curl à la barre et le curl incliné."
+  },
+  {
+    "id": 6,
+    "question": "Comment planifier un programme d'entraînement efficace en musculation ?",
+    "response": "Pour planifier un programme d'entraînement efficace en musculation, il est important de prendre en compte vos objectifs, votre niveau de condition physique actuel et de progresser de manière progressive."
+  },
+  {
+    "id": 7,
+    "question": "Comment éviter les plateaux en musculation ?",
+    "response": "Pour éviter les plateaux en musculation, il est important de varier vos exercices, d'augmenter progressivement l'intensité de l'entraînement et de suivre un programme de musculation bien planifié."
+  },
+  {
+    "id": 8,
+    "question": "Quelle est la meilleure façon de travailler les quadriceps en musculation ?",
+    "response": "La meilleure façon de travailler les quadriceps en musculation est de faire des exercices tels que le squat, le fente et la presse à cuisses."
+  },
+  {
+    "id": 9,
+    "question": "Comment améliorer ma technique de dribble en basket ?",
+    "response": "Pour améliorer votre technique de dribble en basket, vous pouvez pratiquer régulièrement en utilisant les bonnes techniques de dribble, en travaillant votre coordination et en augmentant votre vitesse et votre agilité."
+  }
+]
