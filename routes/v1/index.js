@@ -1,82 +1,50 @@
 const express = require('express')
 const router = express.Router()
+const bodyParser = require('body-parser')
 const dialogController = require('../../controller/v1/index')
 
-/**
- * @swagger
- * /api/v1/:
- *  get:
- *    description: Home route
- *    responses:
- *      '200':
- *        description: A successful response
- */
+const jsonParser = bodyParser.json()
+
 router.get('/', dialogController.home)
 
-/**
- * @swagger
- * /api/v1/test:
- *  get:
- *    description: Test route
- *    responses:
- *      '200':
- *        description: A successful response
- */
 router.get('/test', dialogController.test)
 
 /**
  * @swagger
- * /api/v1/dialog/questions:
- *  get:
- *    description: Use to request all questions
- *    responses:
- *      '200':
- *        description: A successful response
+ *
+ * /api/v1/dialog/question:
+ *   get:
+ *     tags:
+ *       - v1
+ *     produces:
+ *       - application/json
  */
 router.get('/dialog/questions', dialogController.findAllQuestions)
 
+router.post('/dialog/questions', jsonParser, dialogController.search)
+
 /**
  * @swagger
+ *
  * /api/v1/dialog/answer/{id}:
- *  get:
- *    description: Use to find dialog by id
- *    parameters:
- *      - name: id
- *        in: path
- *        description: ID of the dialog
- *        required: true
- *        schema:
- *          type: integer
- *    responses:
- *      '200':
- *        description: A successful response
- *      '404':
- *        description: Dialog not found
+ *   get:
+ *     tags:
+ *       - v1
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *     - name: id
+ *       in: path
+ *       description: Identifiant du dialogue.
+ *       required: true
+ *       schema:
+ *         type: number
+ *     responses:
+ *       '200':
+ *         description: A successful response
+ *       '404':
+ *         description: Dialogue non trouvé
  */
 router.get('/dialog/answer/:id', dialogController.findById)
-
-/**
- * @swagger
- * /api/v1/post/:
- *  post:
- *    description: test post
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            properties:
- *              question:
- *                type: string
- *                description: The question to be posted.
- *    responses:
- *      '200':
- *        description: A successful response
- */
-router.post('/post', dialogController.post)
-
-
-
 
 module.exports = router
