@@ -26,7 +26,7 @@ const chatController = {
       if (chat) {
         res.status(200).json(chat);
       } else {
-        res.status(404).send("Chat with the specified ID does not exists");
+        res.status(404).send("Le chat avec l'ID spécifié n'existe pas");
       }
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -41,7 +41,7 @@ const chatController = {
         const updatedChat = await Chat.findOne({ where: { id: id } });
         res.status(200).json(updatedChat);
       } else {
-        res.status(404).send("Chat with the specified ID does not exists");
+        res.status(404).send("Le chat avec l'ID spécifié n'existe pas");
       }
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -53,9 +53,9 @@ const chatController = {
       const { id } = req.params;
       const deleted = await Chat.destroy({ where: { id: id } });
       if (deleted) {
-        res.status(204).send("Chat deleted");
+        res.status(204).send("Chat supprimé");
       } else {
-        res.status(404).send("Chat with the specified ID does not exists");
+        res.status(404).send("Le chat avec l'ID spécifié n'existe pas");
       }
     } catch (error) {
       res.status(500).json({ error: error.message });
