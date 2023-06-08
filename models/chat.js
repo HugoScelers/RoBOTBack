@@ -35,7 +35,7 @@ async function sync() {
       answer: item.response,
     });
   }
-  console.log("La table pour le modèle Chat a été (re)créée et peuplée!");
+  console.log("La table pour le modèle Chat a été (re)créée !");
 }
 
 // Appel de la fonction pour synchroniser le modèle avec la base de données.
