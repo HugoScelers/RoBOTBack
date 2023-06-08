@@ -1,31 +1,66 @@
-const dialogs = require("../../dialogs.json");
+const Chat = require("../../models/chat");
 
-const dialogController = {
-  home: (req, res) => {
-    res.send('Hello World!')
+const chatController = {
+  createChat: async (req, res) => {
+    try {
+      const chat = await Chat.create({ question: req.body.question, answer: req.body.answer });
+      res.status(201).json(chat);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   },
-  test: (req, res) => {
-    res.send('Hello Test!')
-  },
-  findAllQuestions: (req, res) => {
-    const questions = dialogs.map(({ id, question }) => ({ id, question }))
-    res.json(questions)
-  },
-  findById: (req, res) => {
-    const dialog = dialogs.find(dialog => dialog.id === parseInt(req.params.id))
-    if (!dialog) return res.status(404).send('Dialog not found')
-    res.json(dialog)
-  },
-  search: (req, res) => {
-    const question = normalizeString(req.body.question)
-    const dialogsFiltered = dialogs.filter(dialog => normalizeString(dialog.question).includes(question))
-    res.json(dialogsFiltered)
-  }
-}
 
+  getAllChats: async (req, res) => {
+    try {
+      const chats = await Chat.findAll();
+      res.status(200).json(chats);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
 
-const normalizeString = (str) => {
-  return str.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "")
-}
+  getChatById: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const chat = await Chat.findByPk(id);
+      if (chat) {
+        res.status(200).json(chat);
+      } else {
+        res.status(404).send("Chat with the specified ID does not exists");
+      }
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
 
-module.exports = dialogController
+  updateChat: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const [ updated ] = await Chat.update(req.body, { where: { id: id }});
+      if (updated) {
+        const updatedChat = await Chat.findOne({ where: { id: id } });
+        res.status(200).json(updatedChat);
+      } else {
+        res.status(404).send("Chat with the specified ID does not exists");
+      }
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
+
+  deleteChat: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const deleted = await Chat.destroy({ where: { id: id } });
+      if (deleted) {
+        res.status(204).send("Chat deleted");
+      } else {
+        res.status(404).send("Chat with the specified ID does not exists");
+      }
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
+};
+
+module.exports = chatController;
